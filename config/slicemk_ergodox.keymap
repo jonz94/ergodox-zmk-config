@@ -15,7 +15,7 @@
     &kp ESC    &kp A      &kp S      &kp D      &kp F      &kp G                            &kp H      &kp J      &kp K      &kp L      &kp SCLN   &kp BKSP
     &mo 2      &kp Z      &kp X      &kp C      &kp V      &kp B      &kp M_VOLD &kp M_VOLU &kp N      &kp M      &kp CMMA   &kp DOT    &kp FSLH   &mo 2
     &none      &none      &kp LALT   &kp LARW   &kp DARW                                               &kp UARW   &kp RARW   &kp RALT   &none      &none
-                                                           &kp DEL    &kp HOME   &kp END    &kp INS
+                                                           &mo 2      &mo 1      &mo 1      &mo 2
                                                                       &kp PGUP   &kp PGDN
                                                 &kp SPC    &kp LCTL                         &kp LSFT   &kp RET
                                                                       &kp LGUI   &mo 1
