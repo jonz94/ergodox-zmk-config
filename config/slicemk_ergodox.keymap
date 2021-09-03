@@ -16,9 +16,9 @@
     &kp LSHFT     &kp Z      &kp X      &kp C      &kp V      &kp B      &none      &none      &kp N      &kp M      &kp CMMA   &kp DOT    &kp FSLH   &kp RSHFT
     &kp LCTRL     &kp LGUI   &kp LALT   &none      &none                                                  &none      &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT
                                                            &mo 2      &mo 1      &mo 1      &mo 2
-                                                                      &kp PGUP   &kp PGDN
-                                                &kp SPC    &kp LCTL                         &kp LSFT   &kp RET
-                                                                      &kp LGUI   &mo 1
+                                                                      &none      &none
+                                                &kp SPC    &kp SPACE                        &kp LSFT   &kp RET
+                                                                      &none      &none
                         >;
                 };
 
