@@ -5,7 +5,9 @@ name: Build
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Build Test
+    container:
+      image: zmkfirmware/zmk-build-arm:2.5
+    name: Build
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -26,30 +28,15 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - name: West Init
-        uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
-        id: west-init
-        with:
-          args: 'init "-l config"'
+        run: west init -l config
       - name: West Update
-        uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
-        id: west-update
-        with:
-          args: 'update'
+        run: west update
       - name: West Config Zephyr Base
-        uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
-        id: west-config
-        with:
-          args: 'config "--global zephyr.base-prefer configfile"'
+        run: west config --global zephyr.base-prefer configfile
       - name: West Zephyr Export
-        uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
-        id: west-zephyr-export
-        with:
-          args: 'zephyr-export'
+        run: west zephyr-export
       - name: West Build (ErgoDox Wireless Dongle)
-        uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
-        id: west-build-slicemk-ergodox-dongle
-        with:
-          args: 'build "-s zmk/app -b mdbt50q_rx -- -DSHIELD=slicemk_ergodox_dongle -DZMK_CONFIG=/github/workspace/config"'
+        run: west build -s zmk/app -b mdbt50q_rx -- -DSHIELD=slicemk_ergodox_dongle -DZMK_CONFIG=${GITHUB_WORKSPACE}/config
       - name: DTS File (ErgoDox Wireless Dongle)
         if: ${{ always() }}
         run: cat -n build/zephyr/mdbt50q_rx.dts.pre.tmp
